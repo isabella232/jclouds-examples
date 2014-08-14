@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #bbc3cb;
+      width: 100%;
+      height: 100%;
+      font: 14px Tahoma, Verdana, Arial, san-serif;
+    }
+
+    h1 {
+      font-size: 64px;
+      margin: 10px;
+    }
+
+    div.frameT {
+      width: 100%;
+      padding: 0;
+      display: table;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+    }
+
+    div.frameTC {
+      padding: 0;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 0;
+    }
+
+    div.content {
+      width: 610px;
+      background-color: #fff;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+  <script type="text/javascript">
+    // change background color depending on url
+    // Note that the url is of one of the following forms
+    // http://<ip address>/video/
+    // http://<ip address>/static/
+    // http://<ip address>/
+    function changeBgColor() {
+      path = document.URL
+      path = path.split('/')
+      if (path[3] == 'video') {
+        document.body.style.backgroundColor = "#4285F4"; // blue
+      } else if (path[3] == 'static') {
+        document.body.style.backgroundColor = "#D84437"; // red
+      } else if (path[3] == '') {
+        document.body.style.backgroundColor = "#F4B400"; // yellow
+      } else {
+        document.body.style.backgroundColor = "grey";
+      }
+    }
+  </script>
+  <title>$(hostname -s)</title>
+</head>
+<body onload="changeBgColor()">
+  <div class="frameT">
+    <div class="frameTC">
+      <div class="content">
+        <h1>
+          <script type='text/javascript'>
+            document.write(document.title + "<br />at $(hostname -i)");
+          </script>
+        </h1>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

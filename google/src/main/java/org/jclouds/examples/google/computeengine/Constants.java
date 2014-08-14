@@ -29,4 +29,8 @@ public interface Constants {
 
    public static final String NAME = "jclouds-example";
    public static final String POLL_PERIOD_TWENTY_SECONDS = String.valueOf(SECONDS.toMillis(20));
+   
+   public static final String L7_GROUP_NAME = "jclouds-l7-example";
+   public static final int NUM_INSTANCES = 3;
+   public static final long MAX_WAIT = 30;
 }
