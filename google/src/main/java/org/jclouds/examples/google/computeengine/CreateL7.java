@@ -183,7 +183,7 @@ public class CreateL7 implements Closeable {
             // These instances only have 1 tag, so just getting the first one
             // is fine.
             String tag = createL7.getTag(first);
-            System.out.println("Installing Apache");
+            System.out.println("Installing apache");
             createL7.installApache(L7_GROUP_NAME);
             System.out.println("Setting up www server");
             createL7.installWww(nodeArray[0]);
@@ -192,7 +192,7 @@ public class CreateL7 implements Closeable {
             System.out.println("Setting up static server");
             createL7.installStatic(nodeArray[2]);
             
-            System.out.println("Creating Firewall");
+            System.out.println("Creating firewall");
             createL7.createFirewall(L7_GROUP_NAME + "-firewall", network, tag);
             
             System.out.println("Creating resource views");
@@ -587,8 +587,10 @@ public class CreateL7 implements Closeable {
                .apply(operationReference);
          return operationReference.get().getTargetLink();
       }
-   
-      @Override
+      
+      /**
+       * Always close your service when you're done with it.
+       */
       public void close() throws IOException {
          Closeables.close(computeService.getContext(), true);
       }

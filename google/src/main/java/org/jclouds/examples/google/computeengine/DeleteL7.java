@@ -245,7 +245,9 @@ public class DeleteL7 implements Closeable {
       return operationReference.get();
    }
    
-   @Override
+   /**
+    * Always close your service when you're done with it.
+    */
    public void close() throws IOException {
       Closeables.close(computeService.getContext(), true);
    }
